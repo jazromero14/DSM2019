@@ -21,16 +21,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <TextView android:layout_width="0dp"
-              android:id="@+id/tittle_sesion"
-              android:layout_height="wrap_content"
-    android:text="@string/tittle_app"
-              android:gravity="center"
-              android:textSize="40dp"
-              android:textColor="#ffffff"
-              android:textStyle="bold"
-    app:layout_constraintTop_toBottomOf="@id/logo_sesion"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"/>
+            android:id="@+id/tittle_sesion"
+            android:layout_height="wrap_content"
+            android:text="@string/tittle_app"
+            android:gravity="center"
+            android:textSize="40dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/logo_sesion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
     <EditText
             android:layout_width="0dp"
@@ -85,12 +85,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editContraseña"
 
-    />
+            />
     <android.support.constraint.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-    android:id="@+id/guideline1"
+            android:id="@+id/guideline1"
             android:orientation="horizontal"
-    app:layout_constraintGuide_percent="0.35"/>
+            app:layout_constraintGuide_percent="0.35"/>
 
 </android.support.constraint.ConstraintLayout>
