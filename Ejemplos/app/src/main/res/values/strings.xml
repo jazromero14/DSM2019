@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ejemplos</string>
+    <string name="tittle_app">Mascotas</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="usuario">Usuario</string>
+    <string name="ingresar">Ingresar</string>
+</resources>
