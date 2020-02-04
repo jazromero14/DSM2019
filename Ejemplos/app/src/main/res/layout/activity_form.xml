@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".FormActivity">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/agrega_tu_mascota"
+            android:textAlignment="center"
+            android:textColor="#FF6D00"
+            android:textSize="@dimen/_20sdp" />
+
+    <EditText
+            android:id="@+id/mascota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:autofillHints="@string/nombre"
+            android:hint="@string/nombre"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/_14sdp" />
+
+    <TextView
+            android:id="@+id/dueno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:hint="@string/dueno"
+            android:textSize="@dimen/_14sdp" />
+
+    <Spinner
+            android:id="@+id/razas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp" />
+
+
+    <EditText
+            android:id="@+id/descripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:autofillHints="@string/descripcion"
+            android:hint="@string/descripcion"
+            android:imeOptions="actionDone"
+            android:inputType="textMultiLine"
+            android:textSize="@dimen/_14sdp" />
+
+    <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <RadioButton
+                android:id="@+id/genero_uno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:onClick="addPetToDatabase"
+                android:text="@string/masculino"
+                android:textSize="@dimen/_14sdp" />
+
+        <RadioButton
+                android:id="@+id/genero_dos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:onClick="addPetToDatabase"
+                android:text="@string/feminino"
+                android:textSize="@dimen/_14sdp" />
+    </RadioGroup>
+
+    <Button
+            android:id="@+id/agregar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/button_drawable"
+            android:text="@string/agrega_tu_mascota"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14sdp" />
+
+</LinearLayout>

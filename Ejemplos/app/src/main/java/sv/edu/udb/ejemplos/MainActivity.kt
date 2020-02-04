@@ -1,12 +1,17 @@
 package sv.edu.udb.ejemplos
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
 import kotlinx.android.synthetic.main.activity_main.*
+import sv.edu.udb.ejemplos.database.AppDatabase
+import sv.edu.udb.ejemplos.database.Session
 
+@Suppress("SENSELESS_COMPARISON")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var usuario: EditText
@@ -14,6 +19,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        getConnexion(this)
+        getConnexion(this).sessionDAO()
+            .insertSession(Session(0, "Jazmín Romero", "123456"))
 
         usuario = findViewById(R.id.editUsuario)
         contrasena = findViewById(R.id.editContraseña)
@@ -31,16 +39,37 @@ class MainActivity : AppCompatActivity() {
                 if (x.isEmpty()) {
                     contrasena.error = "La contraseña es requerida"
                 }
-            }else{
-                val intent = Intent(this@MainActivity, Dashboard::class.java)
-                Toast.makeText(this,"Espere unos segundos", Toast.LENGTH_SHORT).show()
-                intent.putExtra("Usuario", y)
-                startActivity(intent)
+            } else {
+                if (getConnexion(this).sessionDAO().getSession(0).userName == y && getConnexion(
+                        this
+                    ).sessionDAO().getSession(0).password == x
+                ) {
+                    val intent = Intent(this@MainActivity, Dashboard::class.java)
+                    Toast.makeText(this, "Espere unos segundos", Toast.LENGTH_SHORT).show()
+                    intent.putExtra("Usuario", y)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(
+                        this,
+                        "Credenciales incorrectas, contacte a soporte",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
 
         }
 
 
-
     }
+
+    companion object {
+        fun getConnexion(context: Context): AppDatabase {
+            return Room.databaseBuilder(context, AppDatabase::class.java, "Exercises_db")
+                .fallbackToDestructiveMigration().allowMainThreadQueries()
+                .build()
+        }
+    }
+
+
 }
